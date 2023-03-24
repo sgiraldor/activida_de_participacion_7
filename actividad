@@ -1,0 +1,40 @@
+from dataclasses import dataclass
+
+@dataclass
+class Elemento:
+    nombre_1: str
+
+    def __eq__(self, nombre_2: str):
+        return self.nombre_1 == nombre_2
+
+ob_1= Elemento("Cmilo")
+ob_2= Elemento("Samuel")
+
+print(ob_1 == ob_2)
+
+class Conjunto:
+    contador=0
+    def __init__(self,nombre,elementos):
+        self.lista_objetos: List[Elemento]= []
+        self.nombre = nombre
+        self.elementos = elementos
+        Conjunto.contador += 1
+
+    def contine(self, elemento):
+        for i in self.elemento:
+            if i.nombre == elemento.nombre:
+                return true
+        return false
+
+    def agregar_elementos(self,elemento):
+        if not self.contiene(elemento):
+            self.elementos.append(elemento)
+
+    def unir(self, otro_conjunto):
+        for i in otro_conjunto.elementos:
+            self.agregar_elementos(i)
+
+    def __add__(self, otro_conjunto):
+        nuevo_conjunto = Conjunto(self.elementos.copy())
+        nuevo_conjunto.unir(otro_conjunto)
+        return nuevo_conjunto
